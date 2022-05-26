@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export const Page1 = () => {
   const arr = [...Array(100).keys()];
   console.log(arr);
+
+  const history = useHistory();
+  const onClickDetailA = () => history.push("/page1/detailA");
   return (
     <div>
       <h1>Here is Page1</h1>
@@ -12,6 +15,8 @@ export const Page1 = () => {
       {/*to に文字列を直接指定するのはオブジェクトを指定する場合の
          shorthandと考えることができる */}
       <Link to="/page1/detailB">Detail B</Link>
+      <br />
+      <button onClick={onClickDetailA}>DetailA</button>
     </div>
   );
 };
